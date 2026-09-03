@@ -1,0 +1,157 @@
+/* ============================================
+   DESIGN TOKENS
+   Palette drawn from the onion itself.
+   ============================================ */
+:root {
+  --skin: #7B3F61;
+  --shoot: #4A7856;
+  --flesh: #F7F1E8;
+  --soil: #2B2118;
+  --clay: #C97B4A;
+  --line: rgba(43, 33, 24, 0.14);
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--flesh);
+  color: var(--soil);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0 0 0.5em 0;
+}
+
+a { color: var(--skin); }
+
+/* ============ HEADER ============ */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; }
+.site-header nav a { margin-left: 1.5rem; text-decoration: none; font-size: 0.95rem; color: var(--soil); }
+.site-header nav a:hover { color: var(--skin); }
+
+/* ============ HERO ============ */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.hero h1 { font-size: clamp(2rem, 4vw, 2.75rem); max-width: 14ch; }
+.hero-sub { max-width: 48ch; color: rgba(43, 33, 24, 0.75); }
+.cta {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--skin);
+  color: var(--flesh);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.cta:hover { background: #632e4f; }
+
+.onion-graphic {
+  width: 220px; height: 220px; margin: 0 auto; position: relative;
+  border-radius: 50%; background: var(--skin);
+}
+.onion-layer { position: absolute; border-radius: 50%; border: 3px solid rgba(247, 241, 232, 0.55); }
+.onion-layer.l1 { inset: 16px; }
+.onion-layer.l2 { inset: 40px; }
+.onion-layer.l3 { inset: 64px; background: var(--flesh); border: none; }
+
+/* ============ FEATURES ============ */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.feature-label { display: block; font-family: var(--font-display); color: var(--shoot); font-weight: 600; margin-bottom: 0.35rem; }
+.feature p { margin: 0; font-size: 0.92rem; color: rgba(43,33,24,0.75); }
+
+/* ============ DEMO ============ */
+.demo, .dashboard { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+.section-sub { color: rgba(43,33,24,0.7); margin-top: -0.5rem; }
+
+.demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+.upload-panel { display: flex; flex-direction: column; gap: 0.75rem; }
+#imageInput { padding: 0.6rem; border: 1px solid var(--line); border-radius: 4px; background: white; }
+#previewCanvas { border: 1px solid var(--line); border-radius: 6px; background: white; max-width: 100%; }
+
+.officer-label { font-size: 0.85rem; color: rgba(43,33,24,0.7); margin-top: 0.5rem; }
+#officerGrade { padding: 0.55rem; border: 1px solid var(--line); border-radius: 4px; background: white; font-family: var(--font-body); }
+
+.result-panel { border: 1px solid var(--line); border-radius: 6px; padding: 1.5rem; background: white; min-height: 200px; }
+.result-placeholder { color: rgba(43,33,24,0.5); }
+
+.grade-badge {
+  display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px;
+  font-weight: 600; font-family: var(--font-display); color: white;
+}
+.grade-A { background: var(--shoot); }
+.grade-B { background: var(--clay); }
+.grade-C { background: #A45C36; }
+.grade-Reject { background: #8C2F2F; }
+
+.defect-list { margin: 0.75rem 0 0 0; padding-left: 1.1rem; font-size: 0.9rem; }
+
+/* ============ DASHBOARD TABLE ============ */
+.lot-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; background: white; }
+.lot-table th, .lot-table td { text-align: left; padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--line); font-size: 0.92rem; }
+.lot-table th { font-family: var(--font-display); font-weight: 600; color: var(--soil); }
+.lot-table tbody tr { cursor: pointer; }
+.lot-table tbody tr:hover { background: rgba(123, 63, 97, 0.06); }
+.status-flag { color: #8C2F2F; font-weight: 600; }
+.status-ok { color: var(--shoot); font-weight: 600; }
+.status-pending { color: rgba(43,33,24,0.5); }
+
+/* ============ MODAL ============ */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(43, 33, 24, 0.55);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem; z-index: 10;
+}
+.modal-overlay.hidden { display: none; }
+.modal-card {
+  background: white; border-radius: 8px; padding: 1.75rem; max-width: 640px; width: 100%;
+  position: relative; max-height: 85vh; overflow-y: auto;
+}
+.modal-close {
+  position: absolute; top: 0.75rem; right: 0.9rem; border: none; background: none;
+  font-size: 1.5rem; cursor: pointer; color: var(--soil); line-height: 1;
+}
+.modal-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 1.25rem; margin-top: 1rem; }
+.modal-grid img { width: 100%; border-radius: 6px; border: 1px solid var(--line); object-fit: cover; }
+.modal-details p { margin: 0.4rem 0; font-size: 0.92rem; }
+
+/* ============ FOOTER ============ */
+.site-footer { text-align: center; padding: 2rem; color: rgba(43,33,24,0.55); font-size: 0.85rem; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  .features { grid-template-columns: repeat(2, 1fr); }
+  .demo-grid { grid-template-columns: 1fr; }
+  .modal-grid { grid-template-columns: 1fr; }
+}
